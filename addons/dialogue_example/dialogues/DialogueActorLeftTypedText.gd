@@ -5,6 +5,7 @@ extends "res://addons/dialogue_editor/model/DialogueDialog.gd"
 var _text: = ""
 
 func _ready() -> void:
+	super._ready()
 	_timer.connect("timeout", _on_timer_timeout)
 
 func _on_timer_timeout() -> void:

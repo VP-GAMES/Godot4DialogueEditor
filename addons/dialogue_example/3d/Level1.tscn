@@ -1,0 +1,117 @@
+[gd_scene load_steps=15 format=3 uid="uid://dg4lcbve82s2x"]
+
+[ext_resource type="PackedScene" path="res://addons/dialogue_example/3d/player/Player.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cuuj0qwt2i8ox" path="res://addons/dialogue_example/3d/models/godotGirl.dae" id="2"]
+[ext_resource type="Script" path="res://addons/dialogue_editor/DialogueDialogue3D.gd" id="3"]
+[ext_resource type="FontData" uid="uid://b70mxl2qgp5dt" path="res://addons/dialogue_editor/default/fonts/Pangolin-Regular.ttf" id="4"]
+[ext_resource type="PackedScene" uid="uid://rrkq8w87tyxa" path="res://addons/dialogue_example/3d/models/flagRed.dae" id="5"]
+[ext_resource type="PackedScene" uid="uid://cuyuwimf8h8j6" path="res://addons/dialogue_example/3d/models/flagYellow.dae" id="6"]
+[ext_resource type="Script" path="res://addons/dialogue_example/3d/Level.gd" id="7"]
+
+[sub_resource type="PlaneMesh" id="1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_irn51"]
+albedo_color = Color(0.0627451, 0.411765, 0.0235294, 1)
+metallic_specular = 0.0
+
+[sub_resource type="BoxShape3D" id="3"]
+
+[sub_resource type="BoxShape3D" id="4"]
+size = Vector3(0.0388198, 7.8478, 2)
+
+[sub_resource type="BoxShape3D" id="5"]
+size = Vector3(4.3102, 4.06276, 4.54192)
+
+[sub_resource type="CapsuleShape3D" id="6"]
+radius = 0.001
+height = 0.002
+
+[sub_resource type="Font" id="7"]
+data/0 = ExtResource( "4" )
+
+[node name="Level" type="Node3D"]
+script = ExtResource( "7" )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Background" type="MeshInstance3D" parent="."]
+transform = Transform3D(35, 0, 0, 0, 1, 0, 0, 0, 35, 0, 0, 0)
+mesh = SubResource( "1" )
+surface_material_override/0 = SubResource( "StandardMaterial3D_irn51" )
+
+[node name="Ground" type="StaticBody3D" parent="Background"]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Background/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.15939, 0)
+shape = SubResource( "3" )
+
+[node name="WallXNegative" type="StaticBody3D" parent="Background"]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Background/WallXNegative"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01813, 1.75066, 0)
+shape = SubResource( "4" )
+
+[node name="WallXPositive" type="StaticBody3D" parent="Background"]
+transform = Transform3D(-1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0)
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Background/WallXPositive"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01813, 1.75066, 0)
+shape = SubResource( "4" )
+
+[node name="WallZNegative" type="StaticBody3D" parent="Background"]
+transform = Transform3D(-1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, 0, 0)
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Background/WallZNegative"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01813, 1.75066, 0)
+shape = SubResource( "4" )
+
+[node name="WallZPositive" type="StaticBody3D" parent="Background"]
+transform = Transform3D(-1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0)
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Background/WallZPositive"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01813, 1.75066, 0)
+shape = SubResource( "4" )
+
+[node name="DirectionalLight" type="DirectionalLight3D" parent="Background"]
+transform = Transform3D(0.0285714, 0, 0, 0, -1.62921e-07, 1, 0, -0.0285714, -4.65488e-09, 0, 20, 0)
+light_energy = 3.0
+
+[node name="Player" parent="." instance=ExtResource( "1" )]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -21, 0, -21)
+
+[node name="Girl" parent="." instance=ExtResource( "2" )]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 21, 0, 21)
+
+[node name="Dialogue3D" type="Area3D" parent="Girl"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+script = ExtResource( "3" )
+dialogue_name = "ade89692-0b62-47dd-bacf-2b835ca69902"
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Girl/Dialogue3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.073782, 2.26772, 1.13945)
+shape = SubResource( "5" )
+
+[node name="StaticBody" type="StaticBody3D" parent="Girl/Dialogue3D"]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Girl/Dialogue3D/StaticBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27477, 0)
+shape = SubResource( "6" )
+
+[node name="CanvasError" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasError"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_fonts/font = SubResource( "7" )
+text = "To support dialogues you have to autoload res://addons/dialogue_editor/DialogueManager.gd"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FlagRed" parent="." instance=ExtResource( "5" )]
+transform = Transform3D(-0.664463, -0.241845, -0.707107, -0.34202, 0.939693, 0, 0.664463, 0.241845, -0.707107, 19.7, 4, 22.3)
+visible = false
+
+[node name="FlagYellow" parent="." instance=ExtResource( "6" )]
+transform = Transform3D(0.664463, 0.241845, 0.707107, -0.34202, 0.939693, 0, -0.664463, -0.241845, 0.707107, 22.3, 4, 19.7)
+visible = false

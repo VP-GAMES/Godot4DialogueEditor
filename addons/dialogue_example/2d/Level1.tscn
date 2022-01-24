@@ -1,0 +1,105 @@
+[gd_scene load_steps=14 format=3 uid="uid://d116yd5r1vpw1"]
+
+[ext_resource type="Texture2D" uid="uid://hw4v8ce22nfw" path="res://addons/dialogue_example/textures/Background.png" id="1"]
+[ext_resource type="PackedScene" path="res://addons/dialogue_example/2d/player/Player.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://dxyyitagh7iwh" path="res://addons/dialogue_example/textures/Girl_eys_open.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bgskssve0skkj" path="res://addons/dialogue_example/textures/BackgroundSide.png" id="4"]
+[ext_resource type="Script" path="res://addons/dialogue_example/2d/Level.gd" id="5"]
+[ext_resource type="FontData" uid="uid://b70mxl2qgp5dt" path="res://addons/dialogue_editor/default/fonts/Pangolin-Regular.ttf" id="6"]
+[ext_resource type="Texture2D" uid="uid://bg8lqfle4al2r" path="res://addons/dialogue_example/textures/FlagYellow.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://btme54cndtmy7" path="res://addons/dialogue_example/textures/FlagRed.png" id="8"]
+[ext_resource type="Script" path="res://addons/dialogue_editor/DialogueDialogue2D.gd" id="9"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(1916.35, 60.3882)
+
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(20, 682.404)
+
+[sub_resource type="RectangleShape2D" id="3"]
+size = Vector2(930.318, 441.884)
+
+[sub_resource type="Font" id="4"]
+data/0 = ExtResource( "6" )
+
+[node name="Level" type="Node2D"]
+script = ExtResource( "5" )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(920, 235)
+texture = ExtResource( "1" )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Floor" type="StaticBody2D" parent="Background"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Floor"]
+position = Vector2(0, 350)
+shape = SubResource( "1" )
+
+[node name="Left" type="StaticBody2D" parent="Background"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Left"]
+position = Vector2(-870, 0)
+shape = SubResource( "2" )
+
+[node name="Right" type="StaticBody2D" parent="Background"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Right"]
+position = Vector2(870, 0)
+shape = SubResource( "2" )
+
+[node name="BackgroundSideRight" type="Sprite2D" parent="Background"]
+position = Vector2(1920, 0)
+texture = ExtResource( "4" )
+flip_h = true
+
+[node name="BackgroundSideLeft" type="Sprite2D" parent="Background"]
+position = Vector2(-1920, 0)
+texture = ExtResource( "4" )
+flip_h = true
+
+[node name="Player" parent="." instance=ExtResource( "2" )]
+position = Vector2(220, 540)
+scale = Vector2(0.2, 0.2)
+
+[node name="Girl" type="Sprite2D" parent="."]
+position = Vector2(1350, 510)
+scale = Vector2(0.19, 0.19)
+texture = ExtResource( "3" )
+
+[node name="Dialogue2D" type="Area2D" parent="Girl"]
+script = ExtResource( "9" )
+dialogue_name = "ade89692-0b62-47dd-bacf-2b835ca69902"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Girl/Dialogue2D"]
+shape = SubResource( "3" )
+
+[node name="CanvasError" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasError"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_colors/font_color = Color(0.823529, 0.533333, 0.121569, 1)
+theme_override_fonts/font = SubResource( "4" )
+text = "To support dialogues you have to autoload res://addons/dialogue_editor/DialogueManager.gd"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FlagRed" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1280, 420)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource( "8" )
+
+[node name="FlagYellow" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1420, 420)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource( "7" )

@@ -90,13 +90,17 @@ config/name="Godot4DialogueEditor"
 config/icon="res://icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
 
+[autoload]
+
+DialogueManager="*res://addons/dialogue_editor/DialogueManager.gd"
+
 [debug]
 
 file_logging/enable_file_logging=true
 
 [dialogue_editor]
 
-dialogues_selected_dialogue="9669fde1-d104-4bd7-a5f9-1644eaeb5fcc"
+dialogues_selected_dialogue="ade89692-0b62-47dd-bacf-2b835ca69902"
 actors_split_offset=211
 scenes_split_offset=259
 dialogues_editor_type="NODES"
@@ -105,3 +109,7 @@ dialogues_editor_type="NODES"
 
 window/size/viewport_width=1280
 window/size/viewport_height=960
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_editor/plugin.cfg")

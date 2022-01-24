@@ -99,7 +99,7 @@ func _next_sentence_action() -> void:
 
 func _next_sentence(index) -> void:
 	var sentence_node_uuid = _node.sentences[index].node_uuid
-	if _node and not sentence_node_uuid.empty():
+	if _node and not sentence_node_uuid.is_empty():
 		var sentence_node = _dialogue.node_by_uuid(sentence_node_uuid)
 		_sentence = _node_to_dialogue_sentence(sentence_node)
 		if _sentence.scene:
@@ -119,9 +119,9 @@ func _node_to_dialogue_sentence(node: DialogueNode):
 	for sentence in node.sentences:
 		var text_event = {"text": "", "event": null, "next": null}
 		text_event.text = sentence.text
-		if not sentence.event.empty():
+		if not sentence.event.is_empty():
 			text_event.event = sentence.event
-		if not sentence.node_uuid.empty():
+		if not sentence.node_uuid.is_empty():
 			text_event.next = sentence.node_uuid
 		dialogueSentence.texte_events.append(text_event)
 	return dialogueSentence
@@ -139,7 +139,7 @@ func _draw_sentence() -> void:
 	if _sentence.scene:
 		var scenePath = _sentence.scene
 		var SentenceScene = load(scenePath)
-		_scene = SentenceScene.instance()
+		_scene = SentenceScene.instantiate()
 		_scene.name = _data.filename_only(scenePath)
 		_layer = CanvasLayer.new()
 		_layer.add_child(_scene)
@@ -154,8 +154,8 @@ func _draw_sentence() -> void:
 			_connect_buttons()
 
 func _connect_gui_input() -> void:
-	if not _scene.is_connected("gui_input", self, "_on_gui_input"):
-		_scene.connect("gui_input", self, "_on_gui_input")
+	if not _scene.is_connected("gui_input", _on_gui_input):
+		_scene.connect("gui_input", _on_gui_input)
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

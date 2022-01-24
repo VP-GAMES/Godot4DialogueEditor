@@ -8,8 +8,100 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "Area2D",
+"class": &"Dialogue2D",
+"language": &"GDScript",
+"path": "res://addons/dialogue_editor/DialogueDialogue2D.gd"
+}, {
+"base": "Area3D",
+"class": &"Dialogue3D",
+"language": &"GDScript",
+"path": "res://addons/dialogue_editor/DialogueDialogue3D.gd"
+}, {
+"base": "Resource",
+"class": &"DialogueActor",
+"language": &"GDScript",
+"path": "res://addons/dialogue_editor/model/DialogueActor.gd"
+}, {
+"base": "Resource",
+"class": &"DialogueData",
+"language": &"GDScript",
+"path": "res://addons/dialogue_editor/model/DialogueData.gd"
+}, {
+"base": "Resource",
+"class": &"DialogueDialogue",
+"language": &"GDScript",
+"path": "res://addons/dialogue_editor/model/DialogueDialogue.gd"
+}, {
+"base": "EditorProperty",
+"class": &"DialogueDialogueInspectorEditor",
+"language": &"GDScript",
+"path": "res://addons/dialogue_editor/inspectors/DialogueMangerDialoguesInspectorPluginEditor.gd"
+}, {
+"base": "RefCounted",
+"class": &"DialogueDialogues",
+"language": &"GDScript",
+"path": "res://dialogue/DialogueDialogues.gd"
+}, {
+"base": "Resource",
+"class": &"DialogueEmpty",
+"language": &"GDScript",
+"path": "res://addons/dialogue_editor/model/DialogueEmpty.gd"
+}, {
+"base": "RefCounted",
+"class": &"DialogueEvents",
+"language": &"GDScript",
+"path": "res://dialogue/DialogueEvents.gd"
+}, {
+"base": "Resource",
+"class": &"DialogueNode",
+"language": &"GDScript",
+"path": "res://addons/dialogue_editor/model/DialogueNode.gd"
+}, {
+"base": "PanelContainer",
+"class": &"DialoguePanelSentence",
+"language": &"GDScript",
+"path": "res://addons/dialogue_editor/scenes/dialogues/nodes_view/nodes/node_sentence/PanelSentence.gd"
+}, {
+"base": "Resource",
+"class": &"DialogueSentence",
+"language": &"GDScript",
+"path": "res://addons/dialogue_editor/model/DialogueSentence.gd"
+}]
+_global_script_class_icons={
+"Dialogue2D": "",
+"Dialogue3D": "",
+"DialogueActor": "res://addons/dialogue_editor/icons/Actor.png",
+"DialogueData": "",
+"DialogueDialogue": "res://addons/dialogue_editor/icons/Dialogue.png",
+"DialogueDialogueInspectorEditor": "",
+"DialogueDialogues": "",
+"DialogueEmpty": "",
+"DialogueEvents": "",
+"DialogueNode": "res://addons/dialogue_editor/icons/Node.png",
+"DialoguePanelSentence": "",
+"DialogueSentence": "res://addons/dialogue_editor/icons/Sentence.png"
+}
+
 [application]
 
-config/name="Dialogue Editor"
+config/name="Godot4DialogueEditor"
 config/icon="res://icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
+
+[debug]
+
+file_logging/enable_file_logging=true
+
+[dialogue_editor]
+
+dialogues_selected_dialogue="9669fde1-d104-4bd7-a5f9-1644eaeb5fcc"
+actors_split_offset=211
+scenes_split_offset=259
+dialogues_editor_type="NODES"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=960

@@ -5,10 +5,10 @@ extends HBoxContainer
 
 var _data: DialogueData
 var _actor: DialogueActor
-var localization_editor
+var localization_editor = null
 
 @onready var _uiname_ui = $MarginData/VBox/HBoxUIName/UIName as LineEdit
-@onready var _dropdown_ui = $MarginData/VBox/HBoxUIName/Dropdown
+@onready var _dropdown_ui = $MarginData/VBox/HBoxUIName/Dropdown as DropdownCustomDialogue
 @onready var _add_ui = $MarginData/VBox/HBox/Add as Button
 @onready var _resources_ui = $MarginData/VBox/Resources as VBoxContainer
 @onready var _texture_ui = $MarginPreview/VBox/Texture as TextureRect
@@ -24,19 +24,19 @@ func set_data(data: DialogueData):
 	_dropdown_ui.set_data(_data)
 
 func _process(delta: float) -> void:
-	if not localization_editor:
+	if localization_editor == null:
 		_dropdown_ui_init()
 
 func _dropdown_ui_init() -> void:
-	if not localization_editor:
+	if localization_editor == null:
 		localization_editor = get_tree().get_root().find_node("LocalizationEditor", true, false)
-	if localization_editor:
+	if localization_editor != null:
 		var data = localization_editor.get_data()
 		if data:
-			if not data.is_connected("data_changed", self, "_on_localization_data_changed"):
-				data.connect("data_changed", self, "_on_localization_data_changed")
-			if not data.is_connected("data_key_value_changed", self, "_on_localization_data_changed"):
-				data.connect("data_key_value_changed", self, "_on_localization_data_changed")
+			if not data.is_connected("data_changed", _on_localization_data_changed):
+				data.connect("data_changed", _on_localization_data_changed)
+			if not data.is_connected("data_key_value_changed", _on_localization_data_changed):
+				data.connect("data_key_value_changed", _on_localization_data_changed)
 			_on_localization_data_changed()
 
 func _on_localization_data_changed() -> void:
@@ -86,18 +86,16 @@ func _on_selection_changed_value(new_text: String) -> void:
 	_actor.change_uiname(new_text)
 
 func _update_view() -> void:
+	_clear_view()
 	if _data:
 		_actor = _data.selected_actor()
 		if _actor:
 			_init_actor_connections()
-			_clear_view()
 			_draw_view()
-		else:
-			_clear_view()
+		_dropdown_ui_draw()
 
 func _draw_view() -> void:
 	_uiname_ui_draw()
-	_dropdown_ui_draw()
 	_on_localization_data_changed()
 	_add_ui.disabled = false
 	for resource in _actor.resources:
@@ -106,12 +104,16 @@ func _draw_view() -> void:
 
 func _uiname_ui_draw() -> void:
 	_uiname_ui.visible = not _data.setting_localization_editor_enabled()
+	_uiname_ui.editable = true
 	_uiname_ui.text = _actor.uiname
 
 func _dropdown_ui_draw() -> void:
 	_dropdown_ui.visible = _data.setting_localization_editor_enabled()
+	_dropdown_ui.editable = true
 
 func _clear_view() -> void:
+	_uiname_ui.editable = false
+	_dropdown_ui.editable = false
 	_add_ui.disabled = true
 	for resource_ui in _resources_ui.get_children():
 		_resources_ui.remove_child(resource_ui)

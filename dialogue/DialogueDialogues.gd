@@ -3,7 +3,7 @@
 @tool
 class_name DialogueDialogues
 
-const DIALOGUE = "9669fde1-d104-4bd7-a5f9-1644eaeb5fcc"
+const DIALOGUE = "7f573246-6c14-4f96-8dd5-344a86f32f8c"
 
 const DIALOGUES = [
  "Dialogue"

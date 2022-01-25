@@ -32,7 +32,7 @@ signal locale_changed(locale)
 
 func get_locale() -> String:
 	_locale = setting_dialogue_editor_locale()
-	if not _locale:
+	if _locale == null:
 		_locale = TranslationServer.get_locale()
 	return _locale
 

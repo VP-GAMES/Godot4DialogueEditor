@@ -42,86 +42,80 @@ __meta__ = {
 }
 
 [node name="PanelScene" type="PanelContainer" parent="."]
-offset_left = 16.0
-offset_top = 24.0
-offset_right = 284.0
-offset_bottom = 67.0
+offset_left = 18.0
+offset_top = 42.0
+offset_right = 282.0
+offset_bottom = 73.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBox" type="HBoxContainer" parent="PanelScene"]
-offset_left = 7.0
-offset_top = 7.0
-offset_right = 261.0
-offset_bottom = 36.0
+offset_right = 264.0
+offset_bottom = 31.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="PanelScene/HBox"]
-offset_top = 1.0
+offset_top = 2.0
 offset_right = 45.0
-offset_bottom = 27.0
+offset_bottom = 28.0
 text = "Scene"
 
 [node name="Scene" type="OptionButton" parent="PanelScene/HBox"]
 offset_left = 49.0
-offset_right = 254.0
-offset_bottom = 29.0
+offset_right = 264.0
+offset_bottom = 31.0
 size_flags_horizontal = 3
 
 [node name="PanelActor" type="PanelContainer" parent="."]
-offset_left = 16.0
-offset_top = 68.0
-offset_right = 284.0
-offset_bottom = 111.0
+offset_left = 18.0
+offset_top = 75.0
+offset_right = 282.0
+offset_bottom = 106.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBox" type="HBoxContainer" parent="PanelActor"]
-offset_left = 7.0
-offset_top = 7.0
-offset_right = 261.0
-offset_bottom = 36.0
+offset_right = 264.0
+offset_bottom = 31.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Add" type="Button" parent="PanelActor/HBox"]
 offset_right = 24.0
-offset_bottom = 29.0
+offset_bottom = 31.0
 rect_min_size = Vector2(24, 24)
 text = "+"
 
 [node name="Label" type="Label" parent="PanelActor/HBox"]
 offset_left = 28.0
-offset_top = 1.0
+offset_top = 2.0
 offset_right = 70.0
-offset_bottom = 27.0
+offset_bottom = 28.0
 text = "Actor"
 
 [node name="Actor" type="OptionButton" parent="PanelActor/HBox"]
 offset_left = 74.0
-offset_right = 254.0
-offset_bottom = 29.0
+offset_right = 264.0
+offset_bottom = 31.0
 size_flags_horizontal = 3
 
 [node name="PanelTexture" type="PanelContainer" parent="."]
-offset_left = 16.0
-offset_top = 112.0
-offset_right = 284.0
-offset_bottom = 157.0
+offset_left = 18.0
+offset_top = 108.0
+offset_right = 282.0
+offset_bottom = 139.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxTexture" type="HBoxContainer" parent="PanelTexture"]
-offset_left = 7.0
-offset_top = 7.0
-offset_right = 261.0
-offset_bottom = 38.0
+offset_right = 264.0
+offset_bottom = 31.0
 
 [node name="View" type="CheckBox" parent="PanelTexture/HBoxTexture"]
 offset_right = 24.0
@@ -136,19 +130,19 @@ text = "Texture"
 
 [node name="Texture" type="OptionButton" parent="PanelTexture/HBoxTexture"]
 offset_left = 91.0
-offset_right = 254.0
+offset_right = 264.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 
 [node name="Center" type="CenterContainer" parent="."]
-offset_left = 16.0
-offset_top = 158.0
-offset_right = 284.0
-offset_bottom = 308.0
+offset_left = 18.0
+offset_top = 141.0
+offset_right = 282.0
+offset_bottom = 291.0
 
 [node name="Texture" type="TextureRect" parent="Center"]
-offset_left = 59.0
-offset_right = 209.0
+offset_left = 57.0
+offset_right = 207.0
 offset_bottom = 150.0
 rect_min_size = Vector2(150, 150)
 ignore_texture_size = true

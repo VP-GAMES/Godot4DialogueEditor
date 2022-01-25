@@ -42,10 +42,10 @@ func _dropdown_ui_init() -> void:
 	if localization_editor:
 		var data = localization_editor.get_data()
 		if data:
-			if not data.is_connected("data_changed", self, "_on_localization_data_changed"):
-				data.connect("data_changed", self, "_on_localization_data_changed")
-			if not data.is_connected("data_key_value_changed", self, "_on_localization_data_changed"):
-				data.connect("data_key_value_changed", self, "_on_localization_data_changed")
+			if not data.is_connected("data_changed", _on_localization_data_changed):
+				data.connect("data_changed", _on_localization_data_changed)
+			if not data.is_connected("data_key_value_changed", _on_localization_data_changed):
+				data.connect("data_key_value_changed", _on_localization_data_changed)
 			_on_localization_data_changed()
 
 func _on_localization_data_changed() -> void:

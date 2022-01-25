@@ -68,6 +68,21 @@ _global_script_classes=[{
 "class": &"DialogueSentence",
 "language": &"GDScript",
 "path": "res://addons/dialogue_editor/model/DialogueSentence.gd"
+}, {
+"base": "LineEdit",
+"class": &"DropdownCustomDialogue",
+"language": &"GDScript",
+"path": "res://addons/dialogue_editor/ui_extensions/dropdown/Dropdown.gd"
+}, {
+"base": "RefCounted",
+"class": &"LocalizationKeys",
+"language": &"GDScript",
+"path": "res://localization/LocalizationKeys.gd"
+}, {
+"base": "RefCounted",
+"class": &"LocalizationPlaceholders",
+"language": &"GDScript",
+"path": "res://localization/LocalizationPlaceholders.gd"
 }]
 _global_script_class_icons={
 "Dialogue2D": "",
@@ -81,7 +96,10 @@ _global_script_class_icons={
 "DialogueEvents": "",
 "DialogueNode": "res://addons/dialogue_editor/icons/Node.png",
 "DialoguePanelSentence": "",
-"DialogueSentence": "res://addons/dialogue_editor/icons/Sentence.png"
+"DialogueSentence": "res://addons/dialogue_editor/icons/Sentence.png",
+"DropdownCustomDialogue": "",
+"LocalizationKeys": "",
+"LocalizationPlaceholders": ""
 }
 
 [application]
@@ -102,9 +120,10 @@ file_logging/enable_file_logging=true
 [dialogue_editor]
 
 dialogues_selected_dialogue="ade89692-0b62-47dd-bacf-2b835ca69902"
-actors_split_offset=211
+actors_split_offset=210
 scenes_split_offset=321
 dialogues_editor_type="NODES"
+dialogues_editor_locale="de"
 
 [display]
 

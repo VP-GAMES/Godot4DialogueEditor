@@ -8,7 +8,7 @@ var _group = ButtonGroup.new()
 @onready var _scenes_ui = $PanelScene/HBox/Scene as OptionButton
 @onready var _add_ui = $PanelActor/HBox/Add as Button
 @onready var _actors_ui = $PanelActor/HBox/Actor as OptionButton
-@onready var _view_ui = $PanelTexture/HBoxTexture/View as Button
+@onready var _view_ui = $PanelTexture/HBoxTexture/View as CheckBox
 @onready var _textures_ui = $PanelTexture/HBoxTexture/Texture as OptionButton
 @onready var _texture_ui = $Center/Texture as TextureRect
 
@@ -166,7 +166,7 @@ func _textures_ui_fill_and_draw() -> void:
 
 func _view_ui_fill_and_draw() -> void:
 	_view_ui.disabled = _node.texture_uuid.is_empty()
-	_view_ui.pressed = _node.texture_view
+	_view_ui.button_pressed = _node.texture_view
 
 func _texture_ui_fill_and_draw() -> void:
 	var texture = null

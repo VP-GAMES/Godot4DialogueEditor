@@ -1,26 +1,29 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://cmavhtjtgg1ca"]
 
-[ext_resource path="res://addons/dialogue_editor/ui_extensions/dropdown/Dropdown.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://addons/dialogue_editor/ui_extensions/dropdown/Dropdown.gd" id="1_sdh1j"]
 
 [node name="Dropdown" type="LineEdit"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+offset_right = 1024.0
+offset_bottom = 600.0
 size_flags_horizontal = 3
-script = ExtResource( 1 )
+size_flags_vertical = 3
+caret_blink = true
+caret_blink_speed = 0.5
+script = ExtResource( "1_sdh1j" )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-popup_maxheight = 150
 
 [node name="PopupPanel" type="PopupPanel" parent="."]
-margin_right = 8.0
-margin_bottom = 8.0
+close_on_parent_focus = false
 
 [node name="Scroll" type="ScrollContainer" parent="PopupPanel"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 4.0
-margin_bottom = 4.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 96.0
+offset_bottom = 96.0
+size_flags_horizontal = 3
 
 [node name="VBox" type="VBoxContainer" parent="PopupPanel/Scroll"]
+offset_right = 92.0
 size_flags_horizontal = 3

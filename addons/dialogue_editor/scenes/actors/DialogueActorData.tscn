@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://addons/dialogue_editor/scenes/actors/DialogueActorData.gd" id="3"]
 [ext_resource type="PackedScene" uid="uid://c5oapcp1mwwa1" path="res://addons/dialogue_editor/scenes/actors/DialogueActorDataResource.tscn" id="4"]
 [ext_resource type="FontData" uid="uid://b70mxl2qgp5dt" path="res://addons/dialogue_editor/default/fonts/Pangolin-Regular.ttf" id="5"]
-[ext_resource type="PackedScene" uid="uid://cmavhtjtgg1ca" path="res://addons/dialogue_editor/ui_extensions/dropdown/Dropdown.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://cf8spgpdsxfdb" path="res://addons/dialogue_editor/ui_extensions/dropdown/Dropdown.tscn" id="6"]
 
 [sub_resource type="Font" id="1"]
 data/0 = ExtResource( "5" )
@@ -51,9 +51,9 @@ size_flags_horizontal = 3
 theme_override_fonts/font = SubResource( "1" )
 
 [node name="Dropdown" parent="MarginData/VBox/HBoxUIName" instance=ExtResource( "6" )]
+anchor_right = 0.0
 offset_left = 175.0
 offset_right = 275.0
-offset_bottom = 31.0
 
 [node name="HSeparator2" type="HSeparator" parent="MarginData/VBox"]
 offset_top = 35.0

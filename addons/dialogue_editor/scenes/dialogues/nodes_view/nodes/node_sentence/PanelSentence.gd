@@ -34,7 +34,6 @@ func set_data(group: ButtonGroup, sentence: Dictionary, node: DialogueNode, dial
 	_dropdown_ui_init()
 	_init_connections()
 	_update_view()
-	_dropdown_ui.set_data(_data)
 
 func _process(delta: float) -> void:
 	if not localization_editor:
@@ -56,7 +55,7 @@ func _on_localization_data_changed() -> void:
 	if _dropdown_ui:
 		_dropdown_ui.clear()
 		for key in localization_editor.get_data().data.keys:
-			_dropdown_ui.add_item(key.value)
+			_dropdown_ui.add_item_as_string(key.value)
 		_dropdown_ui.set_selected_by_value(_sentence.text)
 
 func _init_connections() -> void:
@@ -73,8 +72,8 @@ func _init_connections() -> void:
 	if not _node.is_connected("sentence_event_changed", _on_sentence_event_changed):
 		assert(_node.connect("sentence_event_changed", _on_sentence_event_changed) == OK)
 	if _data.setting_localization_editor_enabled():
-		if not _dropdown_ui.is_connected("selection_changed_value", _on_selection_changed_value):
-			assert(_dropdown_ui.connect("selection_changed_value", _on_selection_changed_value) == OK)
+		if not _dropdown_ui.is_connected("selection_changed", _on_selection_changed):
+			assert(_dropdown_ui.connect("selection_changed", _on_selection_changed) == OK)
 
 func _on_remove_sentence_pressed() -> void:
 	_node.del_sentence(_sentence)
@@ -98,8 +97,8 @@ func _on_select_sentence_pressed() -> void:
 func _on_sentence_event_changed(sentence) -> void:
 	_event_ui_draw()
 
-func _on_selection_changed_value(new_text: String) -> void:
-	_node.change_sentence_text(_sentence, new_text)
+func _on_selection_changed(item: DropdownItem) -> void:
+	_node.change_sentence_text(_sentence, item.value)
 
 func _update_view() -> void:
 	_remove_ui_draw()

@@ -196,6 +196,7 @@ func emit_signal_scene_preview_data_changed(scene) -> void:
 	emit_signal("scene_preview_data_changed", scene)
 
 # ***** DIALOGUES *****
+signal dialogue_changed
 signal dialogue_added(dialogue)
 signal dialogue_removed(dialogue)
 signal dialogue_selection_changed(dialogue)
@@ -249,6 +250,7 @@ func _add_dialogue(dialogue: DialogueDialogue, sendSignal = true, position = dia
 		dialogues = []
 	dialogues.insert(position, dialogue)
 	emit_signal("dialogue_added", dialogue)
+	emit_signal("dialogue_changed")
 	select_dialogue(dialogue)
 
 func del_dialogue(dialogue) -> void:
@@ -266,6 +268,7 @@ func _del_dialogue(dialogue) -> void:
 	if index > -1:
 		dialogues.remove_at(index)
 		emit_signal("dialogue_removed", dialogue)
+		emit_signal("dialogue_changed")
 		_dialogue_selected = null
 		var dialogue_selected = selected_dialogue()
 		select_dialogue(dialogue_selected)

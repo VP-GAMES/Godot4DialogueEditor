@@ -4,46 +4,43 @@
 extends EditorProperty
 class_name DialogueDialogueInspectorEditor
 
-const Dropdown = preload("res://addons/dialogue_editor/ui_extensions/dropdown_uuid/Dropdown.tscn")
+const Dropdown = preload("res://addons/dialogue_editor/ui_extensions/dropdown/Dropdown.tscn")
 
 var updating = false
 var dialogue_editor
-var dropdown = Dropdown.instance()
+var dropdown = Dropdown.instantiate()
 var _data: DialogueData
-var _items: Array
 
 func set_data(data: DialogueData) -> void:
 	_data = data
-	_items = _data.dialogues
+	_data.dialogue_changed.connect(_update_dropdown)
+	_update_dropdown()
 
 func _init():
 	add_child(dropdown)
 	add_focusable(dropdown)
-	dropdown.connect("gui_input", self, "_on_gui_input")
-	dropdown.connect("selection_changed", self, "_on_selection_changed")
+	dropdown.connect("selection_changed", _on_selection_changed)
 
-func _on_gui_input(event: InputEvent) -> void:
-	_items = _data.dialogues
+func _update_dropdown() -> void:
 	dropdown.clear()
-	for item in _items:
-		var item_d = {"text": item.name, "value": item.uuid }
+	for dialogue in _data.dialogues:
+		var item_d = DropdownItem.new(dialogue.name, dialogue.uuid)
 		dropdown.add_item(item_d)
 
-func _on_selection_changed(item: Dictionary):
+func _on_selection_changed(item: DropdownItem):
 	if (updating):
 		return
 	emit_changed(get_edited_property(), item.value)
 
-func update_property():
+func _update_property():
 	var new_value = get_edited_object()[get_edited_property()]
 	updating = true
-	var item = item_by_uuid(new_value)
-	if item and item.text:
-		dropdown.text = item.text
+	print(item_by_uuid(new_value))
+	dropdown.set_selected_by_value(new_value)
 	updating = false
 
-func item_by_uuid(uuid: String) -> Dictionary:
-	for item in _items:
-		if item.uuid == uuid:
-			return {"text": item.name, "value": item.uuid}
-	return {"text": null, "value": null}
+func item_by_uuid(uuid: String) -> DropdownItem:
+	for dialogue in _data.dialogues:
+		if dialogue.uuid == uuid:
+			return DropdownItem.new(dialogue.name, dialogue.uuid)
+	return null

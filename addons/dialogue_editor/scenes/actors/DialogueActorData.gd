@@ -8,7 +8,7 @@ var _actor: DialogueActor
 var localization_editor = null
 
 @onready var _uiname_ui = $MarginData/VBox/HBoxUIName/UIName as LineEdit
-@onready var _dropdown_ui = $MarginData/VBox/HBoxUIName/Dropdown as DropdownCustomDialogue
+@onready var _dropdown_ui = $MarginData/VBox/HBoxUIName/Dropdown as DropdownCustom
 @onready var _add_ui = $MarginData/VBox/HBox/Add as Button
 @onready var _resources_ui = $MarginData/VBox/Resources as VBoxContainer
 @onready var _texture_ui = $MarginPreview/VBox/Texture as TextureRect
@@ -21,7 +21,6 @@ func set_data(data: DialogueData):
 	_dropdown_ui_init()
 	_init_connections()
 	_update_view()
-	_dropdown_ui.set_data(_data)
 
 func _process(delta: float) -> void:
 	if localization_editor == null:
@@ -44,7 +43,7 @@ func _on_localization_data_changed() -> void:
 		_dropdown_ui.clear()
 		if localization_editor:
 			for key in localization_editor.get_data().data.keys:
-				_dropdown_ui.add_item(key.value)
+				_dropdown_ui.add_item_as_string(key.value)
 			if _actor:
 				_dropdown_ui.set_selected_by_value(_actor.uiname)
 
@@ -69,8 +68,8 @@ func _init_actor_connections() -> void:
 	if not _uiname_ui.is_connected("text_changed", _on_uiname_changed):
 		assert(_uiname_ui.connect("text_changed", _on_uiname_changed) == OK)
 	if _data.setting_localization_editor_enabled():
-		if not _dropdown_ui.is_connected("selection_changed_value", _on_selection_changed_value):
-			assert(_dropdown_ui.connect("selection_changed_value", _on_selection_changed_value) == OK)
+		if not _dropdown_ui.is_connected("selection_changed", _on_selection_changed):
+			assert(_dropdown_ui.connect("selection_changed", _on_selection_changed) == OK)
 
 func _on_resource_added(resource) -> void:
 	_update_view()
@@ -82,8 +81,8 @@ func _on_resource_removed(resource) -> void:
 func _on_uiname_changed(new_text: String) -> void:
 	_actor.change_uiname(new_text)
 
-func _on_selection_changed_value(new_text: String) -> void:
-	_actor.change_uiname(new_text)
+func _on_selection_changed(item: DropdownItem) -> void:
+	_actor.change_uiname(item.value)
 
 func _update_view() -> void:
 	_clear_view()
@@ -109,11 +108,11 @@ func _uiname_ui_draw() -> void:
 
 func _dropdown_ui_draw() -> void:
 	_dropdown_ui.visible = _data.setting_localization_editor_enabled()
-	_dropdown_ui.editable = true
+	_dropdown_ui.set_disabled(false)
 
 func _clear_view() -> void:
 	_uiname_ui.editable = false
-	_dropdown_ui.editable = false
+	_dropdown_ui.set_disabled(true)
 	_add_ui.disabled = true
 	for resource_ui in _resources_ui.get_children():
 		_resources_ui.remove_child(resource_ui)

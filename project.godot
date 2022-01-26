@@ -69,10 +69,15 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://addons/dialogue_editor/model/DialogueSentence.gd"
 }, {
-"base": "LineEdit",
-"class": &"DropdownCustomDialogue",
+"base": "VBoxContainer",
+"class": &"DropdownCustom",
 "language": &"GDScript",
 "path": "res://addons/dialogue_editor/ui_extensions/dropdown/Dropdown.gd"
+}, {
+"base": "Object",
+"class": &"DropdownItem",
+"language": &"GDScript",
+"path": "res://addons/dialogue_editor/ui_extensions/dropdown/DropdownItem.gd"
 }, {
 "base": "RefCounted",
 "class": &"LocalizationKeys",
@@ -97,7 +102,8 @@ _global_script_class_icons={
 "DialogueNode": "res://addons/dialogue_editor/icons/Node.png",
 "DialoguePanelSentence": "",
 "DialogueSentence": "res://addons/dialogue_editor/icons/Sentence.png",
-"DropdownCustomDialogue": "",
+"DropdownCustom": "",
+"DropdownItem": "",
 "LocalizationKeys": "",
 "LocalizationPlaceholders": ""
 }

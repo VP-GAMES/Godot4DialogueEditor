@@ -22,7 +22,7 @@ func _enter_tree():
 	_dialogue_editor.set_editor(self)
 	_make_visible(false)
 	add_custom_type("Dialogue2D", "Area2D", DialogueDialogue2D, DialogueIcon)
-	add_custom_type("Dialogue3D", "Area", DialogueDialogue3D, DialogueIcon)
+	add_custom_type("Dialogue3D", "Area3D", DialogueDialogue3D, DialogueIcon)
 	_dialogue_editor_plugin = preload("res://addons/dialogue_editor/inspectors/DialogueMangerDialoguesInspectorPlugin.gd").new()
 	_dialogue_editor_plugin.set_data(_dialogue_editor.get_data())
 	add_inspector_plugin(_dialogue_editor_plugin)

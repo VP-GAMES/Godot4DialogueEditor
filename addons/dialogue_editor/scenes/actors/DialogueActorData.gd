@@ -8,7 +8,7 @@ var _actor: DialogueActor
 var localization_editor = null
 
 @onready var _uiname_ui = $MarginData/VBox/HBoxUIName/UIName as LineEdit
-@onready var _dropdown_ui = $MarginData/VBox/HBoxUIName/Dropdown as DropdownCustom
+@onready var _dropdown_ui = $MarginData/VBox/HBoxUIName/Dropdown
 @onready var _add_ui = $MarginData/VBox/HBox/Add as Button
 @onready var _resources_ui = $MarginData/VBox/Resources as VBoxContainer
 @onready var _texture_ui = $MarginPreview/VBox/Texture as TextureRect
@@ -68,8 +68,8 @@ func _init_actor_connections() -> void:
 	if not _uiname_ui.is_connected("text_changed", _on_uiname_changed):
 		assert(_uiname_ui.connect("text_changed", _on_uiname_changed) == OK)
 	if _data.setting_localization_editor_enabled():
-		if not _dropdown_ui.is_connected("selection_changed", _on_selection_changed):
-			assert(_dropdown_ui.connect("selection_changed", _on_selection_changed) == OK)
+		if not _dropdown_ui.selection_changed.is_connected(_on_selection_changed):
+			assert(_dropdown_ui.selection_changed.connect(_on_selection_changed) == OK)
 
 func _on_resource_added(resource) -> void:
 	_update_view()

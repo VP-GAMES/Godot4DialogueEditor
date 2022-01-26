@@ -69,25 +69,10 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://addons/dialogue_editor/model/DialogueSentence.gd"
 }, {
-"base": "VBoxContainer",
-"class": &"DropdownCustom",
-"language": &"GDScript",
-"path": "res://addons/dialogue_editor/ui_extensions/dropdown/Dropdown.gd"
-}, {
 "base": "Object",
 "class": &"DropdownItem",
 "language": &"GDScript",
 "path": "res://addons/dialogue_editor/ui_extensions/dropdown/DropdownItem.gd"
-}, {
-"base": "RefCounted",
-"class": &"LocalizationKeys",
-"language": &"GDScript",
-"path": "res://localization/LocalizationKeys.gd"
-}, {
-"base": "RefCounted",
-"class": &"LocalizationPlaceholders",
-"language": &"GDScript",
-"path": "res://localization/LocalizationPlaceholders.gd"
 }]
 _global_script_class_icons={
 "Dialogue2D": "",
@@ -102,10 +87,7 @@ _global_script_class_icons={
 "DialogueNode": "res://addons/dialogue_editor/icons/Node.png",
 "DialoguePanelSentence": "",
 "DialogueSentence": "res://addons/dialogue_editor/icons/Sentence.png",
-"DropdownCustom": "",
-"DropdownItem": "",
-"LocalizationKeys": "",
-"LocalizationPlaceholders": ""
+"DropdownItem": ""
 }
 
 [application]

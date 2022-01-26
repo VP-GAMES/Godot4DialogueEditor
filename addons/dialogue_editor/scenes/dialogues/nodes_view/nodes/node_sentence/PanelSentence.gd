@@ -72,8 +72,8 @@ func _init_connections() -> void:
 	if not _node.is_connected("sentence_event_changed", _on_sentence_event_changed):
 		assert(_node.connect("sentence_event_changed", _on_sentence_event_changed) == OK)
 	if _data.setting_localization_editor_enabled():
-		if not _dropdown_ui.is_connected("selection_changed", _on_selection_changed):
-			assert(_dropdown_ui.connect("selection_changed", _on_selection_changed) == OK)
+		if not _dropdown_ui.selection_changed.is_connected(_on_selection_changed):
+			assert(_dropdown_ui.selection_changed.connect(_on_selection_changed) == OK)
 
 func _on_remove_sentence_pressed() -> void:
 	_node.del_sentence(_sentence)

@@ -35,7 +35,6 @@ func _on_selection_changed(item: DropdownItem):
 func _update_property():
 	var new_value = get_edited_object()[get_edited_property()]
 	updating = true
-	print(item_by_uuid(new_value))
 	dropdown.set_selected_by_value(new_value)
 	updating = false
 

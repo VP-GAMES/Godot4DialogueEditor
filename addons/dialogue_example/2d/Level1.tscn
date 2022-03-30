@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://d116yd5r1vpw1"]
+[gd_scene load_steps=14 format=3 uid="uid://bs0ixy2nqyf38"]
 
 [ext_resource type="Texture2D" uid="uid://hw4v8ce22nfw" path="res://addons/dialogue_example/textures/Background.png" id="1"]
-[ext_resource type="PackedScene" path="res://addons/dialogue_example/2d/player/Player.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://bta50inhb3w0v" path="res://addons/dialogue_example/2d/player/Player.tscn" id="2"]
 [ext_resource type="Texture2D" uid="uid://dxyyitagh7iwh" path="res://addons/dialogue_example/textures/Girl_eys_open.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://bgskssve0skkj" path="res://addons/dialogue_example/textures/BackgroundSide.png" id="4"]
 [ext_resource type="Script" path="res://addons/dialogue_example/2d/Level.gd" id="5"]

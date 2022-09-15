@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" path="res://addons/dialogue_example/3d/player/Player.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://cuuj0qwt2i8ox" path="res://addons/dialogue_example/3d/models/godotGirl.dae" id="2"]
 [ext_resource type="Script" path="res://addons/dialogue_editor/DialogueDialogue3D.gd" id="3"]
-[ext_resource type="FontData" uid="uid://b70mxl2qgp5dt" path="res://addons/dialogue_editor/default/fonts/Pangolin-Regular.ttf" id="4"]
+[ext_resource type="FontFile" uid="uid://b70mxl2qgp5dt" path="res://addons/dialogue_editor/default/fonts/Pangolin-Regular.ttf" id="4"]
 [ext_resource type="PackedScene" uid="uid://rrkq8w87tyxa" path="res://addons/dialogue_example/3d/models/flagRed.dae" id="5"]
 [ext_resource type="PackedScene" uid="uid://cuyuwimf8h8j6" path="res://addons/dialogue_example/3d/models/flagYellow.dae" id="6"]
 [ext_resource type="Script" path="res://addons/dialogue_example/3d/Level.gd" id="7"]
@@ -25,9 +25,6 @@ size = Vector3(4.3102, 4.06276, 4.54192)
 [sub_resource type="CapsuleShape3D" id="6"]
 radius = 0.001
 height = 0.002
-
-[sub_resource type="Font" id="7"]
-data/0 = ExtResource( "4" )
 
 [node name="Level" type="Node3D"]
 script = ExtResource( "7" )
@@ -102,7 +99,7 @@ shape = SubResource( "6" )
 [node name="Label" type="Label" parent="CanvasError"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_fonts/font = SubResource( "7" )
+theme_override_fonts/font = ExtResource( "4" )
 text = "To support dialogues you have to autoload res://addons/dialogue_editor/DialogueManager.gd"
 __meta__ = {
 "_edit_use_anchors_": false

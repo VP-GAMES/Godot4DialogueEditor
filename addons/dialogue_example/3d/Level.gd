@@ -13,16 +13,16 @@ func _ready() -> void:
 	if get_tree().get_root().has_node("DialogueManager"):
 		_error_ui.queue_free()
 		dialogueManager = get_tree().get_root().get_node("DialogueManager")
-		if not dialogueManager.is_connected("dialogue_event", _on_dialogue_event):
-				assert(dialogueManager.connect("dialogue_event", _on_dialogue_event) == OK)
+		if not dialogueManager.dialogue_event.is_connected(_on_dialogue_event):
+				assert(dialogueManager.dialogue_event.connect(_on_dialogue_event) == OK)
 
 func _on_dialogue_event(event: String) -> void:
 	if event == DialogueEvents.QUESTION_EVENT_RIGHT or event == DialogueEvents.QUESTION_EVENT_WRONG:
 		_flag_yellow_ui.visible = event == DialogueEvents.QUESTION_EVENT_RIGHT
 		_flag_red_ui.visible = event == DialogueEvents.QUESTION_EVENT_WRONG
 		_timer_ui.start()
-		if not _timer_ui.is_connected("timeout", _on_timeout):
-			assert(_timer_ui.connect("timeout", _on_timeout) == OK)
+		if not _timer_ui.timeout.is_connected(_on_timeout):
+			assert(_timer_ui.timeout.connect(_on_timeout) == OK)
 
 func _on_timeout() -> void:
 	_reset_flags()

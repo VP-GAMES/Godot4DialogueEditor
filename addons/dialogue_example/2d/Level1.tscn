@@ -77,8 +77,11 @@ shape = SubResource("3")
 [node name="CanvasError" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasError"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.823529, 0.533333, 0.121569, 1)
 theme_override_fonts/font = ExtResource("6")
 text = "To support dialogues you have to autoload res://addons/dialogue_editor/DialogueManager.gd"

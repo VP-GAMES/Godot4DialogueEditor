@@ -6,7 +6,7 @@ var _text: = ""
 
 func _ready() -> void:
 	super._ready()
-	_timer.connect("timeout", _on_timer_timeout)
+	_timer.timeout.connect(_on_timer_timeout)
 
 func _on_timer_timeout() -> void:
 	if _sentence and _text.length() != _sentence.texte_events[0].text.length():

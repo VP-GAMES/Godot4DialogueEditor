@@ -107,7 +107,7 @@ file_logging/enable_file_logging=true
 
 [dialogue_editor]
 
-dialogues_selected_dialogue="7aecd549-4634-4808-92b6-b1408c963d12"
+dialogues_selected_dialogue="051cdb27-6007-4dfc-a0e8-f7617f4a5dd0"
 actors_split_offset=210
 scenes_split_offset=321
 dialogues_editor_type="NODES"

@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bs0ixy2nqyf38"]
+[gd_scene load_steps=12 format=3 uid="uid://bs0ixy2nqyf38"]
 
 [ext_resource type="Texture2D" uid="uid://hw4v8ce22nfw" path="res://addons/dialogue_example/textures/Background.png" id="1"]
 [ext_resource type="PackedScene" uid="uid://bta50inhb3w0v" path="res://addons/dialogue_example/2d/player/Player.tscn" id="2"]
 [ext_resource type="Texture2D" uid="uid://dxyyitagh7iwh" path="res://addons/dialogue_example/textures/Girl_eys_open.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://bgskssve0skkj" path="res://addons/dialogue_example/textures/BackgroundSide.png" id="4"]
 [ext_resource type="Script" path="res://addons/dialogue_example/2d/Level.gd" id="5"]
-[ext_resource type="FontFile" uid="uid://b70mxl2qgp5dt" path="res://addons/dialogue_editor/default/fonts/Pangolin-Regular.ttf" id="6"]
 [ext_resource type="Texture2D" uid="uid://bg8lqfle4al2r" path="res://addons/dialogue_example/textures/FlagYellow.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://btme54cndtmy7" path="res://addons/dialogue_example/textures/FlagRed.png" id="8"]
 [ext_resource type="Script" path="res://addons/dialogue_editor/DialogueDialogue2D.gd" id="9"]
@@ -83,7 +82,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.823529, 0.533333, 0.121569, 1)
-theme_override_fonts/font = ExtResource("6")
 text = "To support dialogues you have to autoload res://addons/dialogue_editor/DialogueManager.gd"
 
 [node name="FlagRed" type="Sprite2D" parent="."]

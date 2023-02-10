@@ -2,6 +2,7 @@
 # @author Vladimir Petrenko
 @tool
 extends VBoxContainer
+class_name Dropdown
 
 signal selection_changed(item: DropdownItem)
 
@@ -83,7 +84,10 @@ func _update_view() -> void:
 	_update_view_button()
 
 func _update_view_icon() -> void:
-	_icon.visible = _selected >= 0 and _items[_selected].icon != null
+	if _selected >= 0 and _items[_selected].icon != null:
+		_icon.show()
+	else:
+		_icon.hide()
 
 func _update_view_button() -> void:
 	_clear.visible = _selected >= 0
@@ -141,9 +145,10 @@ func _init_check_box(index: int) -> CheckBox:
 	var check_box = CheckBox.new()
 	check_box.set_button_group(_group)
 	check_box.text = _items[index].text
-	if _items[index].icon != null:
-		check_box.icon = _items[index].icon
 	check_box.tooltip_text = _items[index].tooltip
+	if _items[index].icon != null:
+		check_box.expand_icon = true
+		check_box.icon = _items[index].icon
 	if index == _selected:
 		check_box.set_pressed(true)
 	check_box.pressed.connect(_on_selection_changed.bind(index))
@@ -153,7 +158,7 @@ func _on_selection_changed(index: int) -> void:
 	if index < 0:
 		_selected = -1
 		_selector.text = ""
-	elif _selected != index:
+	else:
 		_selected = index
 		_selector.text = _items[_selected].text
 		_selector.tooltip_text = _items[_selected].tooltip

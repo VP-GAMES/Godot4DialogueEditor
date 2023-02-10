@@ -8,88 +8,6 @@
 
 config_version=5
 
-_global_script_classes=[{
-"base": "Area2D",
-"class": &"Dialogue2D",
-"language": &"GDScript",
-"path": "res://addons/dialogue_editor/DialogueDialogue2D.gd"
-}, {
-"base": "Area3D",
-"class": &"Dialogue3D",
-"language": &"GDScript",
-"path": "res://addons/dialogue_editor/DialogueDialogue3D.gd"
-}, {
-"base": "Resource",
-"class": &"DialogueActor",
-"language": &"GDScript",
-"path": "res://addons/dialogue_editor/model/DialogueActor.gd"
-}, {
-"base": "Resource",
-"class": &"DialogueData",
-"language": &"GDScript",
-"path": "res://addons/dialogue_editor/model/DialogueData.gd"
-}, {
-"base": "Resource",
-"class": &"DialogueDialogue",
-"language": &"GDScript",
-"path": "res://addons/dialogue_editor/model/DialogueDialogue.gd"
-}, {
-"base": "EditorProperty",
-"class": &"DialogueDialogueInspectorEditor",
-"language": &"GDScript",
-"path": "res://addons/dialogue_editor/inspectors/DialogueMangerDialoguesInspectorPluginEditor.gd"
-}, {
-"base": "RefCounted",
-"class": &"DialogueDialogues",
-"language": &"GDScript",
-"path": "res://dialogue/DialogueDialogues.gd"
-}, {
-"base": "Resource",
-"class": &"DialogueEmpty",
-"language": &"GDScript",
-"path": "res://addons/dialogue_editor/model/DialogueEmpty.gd"
-}, {
-"base": "RefCounted",
-"class": &"DialogueEvents",
-"language": &"GDScript",
-"path": "res://dialogue/DialogueEvents.gd"
-}, {
-"base": "Resource",
-"class": &"DialogueNode",
-"language": &"GDScript",
-"path": "res://addons/dialogue_editor/model/DialogueNode.gd"
-}, {
-"base": "PanelContainer",
-"class": &"DialoguePanelSentence",
-"language": &"GDScript",
-"path": "res://addons/dialogue_editor/scenes/dialogues/nodes_view/nodes/node_sentence/PanelSentence.gd"
-}, {
-"base": "Resource",
-"class": &"DialogueSentence",
-"language": &"GDScript",
-"path": "res://addons/dialogue_editor/model/DialogueSentence.gd"
-}, {
-"base": "Object",
-"class": &"DropdownItem",
-"language": &"GDScript",
-"path": "res://addons/dialogue_editor/ui_extensions/dropdown/DropdownItem.gd"
-}]
-_global_script_class_icons={
-"Dialogue2D": "",
-"Dialogue3D": "",
-"DialogueActor": "res://addons/dialogue_editor/icons/Actor.png",
-"DialogueData": "",
-"DialogueDialogue": "res://addons/dialogue_editor/icons/Dialogue.png",
-"DialogueDialogueInspectorEditor": "",
-"DialogueDialogues": "",
-"DialogueEmpty": "",
-"DialogueEvents": "",
-"DialogueNode": "res://addons/dialogue_editor/icons/Node.png",
-"DialoguePanelSentence": "",
-"DialogueSentence": "res://addons/dialogue_editor/icons/Sentence.png",
-"DropdownItem": ""
-}
-
 [application]
 
 config/name="Godot4DialogueEditor"
@@ -107,7 +25,7 @@ file_logging/enable_file_logging=true
 
 [dialogue_editor]
 
-dialogues_selected_dialogue="ade89692-0b62-47dd-bacf-2b835ca69902"
+dialogues_selected_dialogue="051cdb27-6007-4dfc-a0e8-f7617f4a5dd0"
 actors_split_offset=210
 scenes_split_offset=321
 dialogues_editor_type="NODES"
@@ -148,31 +66,31 @@ texture={
 
 move_left={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 move_right={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 move_up={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 move_bottom={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 action={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 cancel={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
